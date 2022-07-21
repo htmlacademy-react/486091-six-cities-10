@@ -1,4 +1,20 @@
-function RoomScreen(): JSX.Element {
+import Gallery from '../../components/gallery/gallery';
+import { useParams } from 'react-router-dom';
+import {Offer, Review} from '../../types/offers';
+import PageNotFoundScreen from '../page-not-found-screen/page-not-found-screen';
+
+type RoomScreenProps = {
+  offers: Offer[],
+  reviews: Review[]
+}
+
+function RoomScreen({offers, reviews}: RoomScreenProps): JSX.Element {
+  const params = useParams();
+  const offer = offers.find((item) => item.id === Number(params.id));
+
+  if(offer === undefined) {
+    return (<PageNotFoundScreen />);
+  }
   return (
     <div className="page">
       <header className="header">
@@ -42,50 +58,7 @@ function RoomScreen(): JSX.Element {
       <main className="page__main page__main--property">
         <section className="property">
           <div className="property__gallery-container container">
-            <div className="property__gallery">
-              <div className="property__image-wrapper">
-                <img
-                  className="property__image"
-                  src="img/room.jpg"
-                  alt="Photo studio"
-                />
-              </div>
-              <div className="property__image-wrapper">
-                <img
-                  className="property__image"
-                  src="img/apartment-01.jpg"
-                  alt="Photo studio"
-                />
-              </div>
-              <div className="property__image-wrapper">
-                <img
-                  className="property__image"
-                  src="img/apartment-02.jpg"
-                  alt="Photo studio"
-                />
-              </div>
-              <div className="property__image-wrapper">
-                <img
-                  className="property__image"
-                  src="img/apartment-03.jpg"
-                  alt="Photo studio"
-                />
-              </div>
-              <div className="property__image-wrapper">
-                <img
-                  className="property__image"
-                  src="img/studio-01.jpg"
-                  alt="Photo studio"
-                />
-              </div>
-              <div className="property__image-wrapper">
-                <img
-                  className="property__image"
-                  src="img/apartment-01.jpg"
-                  alt="Photo studio"
-                />
-              </div>
-            </div>
+            <Gallery images={offer.images} />
           </div>
           <div className="property__container container">
             <div className="property__wrapper">

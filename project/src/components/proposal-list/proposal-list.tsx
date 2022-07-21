@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import PlaceCard from '../place-card/place-card';
 import {Offer} from '../../types/offers';
 
@@ -6,13 +7,21 @@ type Props = {
 };
 
 function ProposalList({offers}: Props): JSX.Element {
+  const [, setActiveCardId] = useState(0);
+
   return (
-    <>
-      <PlaceCard offer={offers[0]}/>
-      <PlaceCard offer={offers[1]}/>
-      <PlaceCard offer={offers[2]}/>
-      <PlaceCard offer={offers[3]}/>
-    </>
+    <div className="cities__places-list places__list tabs__content">
+      {offers.map((offer) => (
+        <PlaceCard
+          offer={offer}
+          key={offer.id}
+          onMouseOver={() => {
+            setActiveCardId(offer.id);
+          }}
+          onMouseOut={() => setActiveCardId(0)}
+        />
+      ))}
+    </div>
   );
 }
 

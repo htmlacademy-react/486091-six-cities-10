@@ -1,15 +1,18 @@
+import { Link } from 'react-router-dom';
 import {Offer} from '../../types/offers';
 import {capitalizeFirstLetter, renderPremiumLabel} from '../../tools/tools';
 import Rating from '../rating/rating';
 
 type Props = {
   offer: Offer;
+  onMouseOver?: () => void;
+  onMouseOut?:() => void;
 }
 
-function PlaceCard({offer}: Props): JSX.Element {
+function PlaceCard({offer, onMouseOver, onMouseOut}: Props): JSX.Element {
 
   return (
-    <article className="cities__card place-card">
+    <article className="cities__card place-card" onMouseOver={onMouseOver} onMouseOut={onMouseOut}>
       {offer.isPremium ? renderPremiumLabel() : ''}
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
@@ -33,7 +36,7 @@ function PlaceCard({offer}: Props): JSX.Element {
         </div>
         <Rating rating={offer.rating} />
         <h2 className="place-card__name">
-          <a href="#">{offer.title}</a>
+          <Link to={`/offer/${offer.id}`}>{offer.title}</Link>
         </h2>
         <p className="place-card__type">{capitalizeFirstLetter(offer.type)}</p>
       </div>
