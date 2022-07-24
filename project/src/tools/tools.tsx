@@ -24,4 +24,3 @@ export const renderRatingWidth = (rating: number): { width: string } => {
   }
 };
 
-

@@ -1,6 +1,7 @@
 import {capitalizeFirstLetter, renderPremiumLabel} from '../../tools/tools';
 import {Offer} from '../../types/offers';
 import Rating from '../rating/rating';
+import {cardClassNames} from "../../const";
 type Props = {
   offer: Offer;
 }
@@ -42,7 +43,7 @@ function FavoritesCard({offer}: Props): JSX.Element {
             <span className="visually-hidden">In bookmarks</span>
           </button>
         </div>
-        <Rating rating={offer.rating} />
+        <Rating rating={offer.rating} cardType={cardClassNames.PlaceCard} />
         <h2 className="place-card__name">
           <a href="#">{offer.title}</a>
         </h2>

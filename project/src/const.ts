@@ -12,6 +12,20 @@ export enum AuthorizationStatus {
   Unknown = 'UNKNOWN',
 }
 
+export enum Cities {
+  FirstCity = 'Paris',
+  SecondCity = 'Cologne',
+  ThirdCity = 'Brussels',
+  FourthCity = 'Amsterdam',
+  FifthCity = 'Hamburg',
+  SixthCity = 'Dusseldorf'
+}
+
+export enum cardClassNames {
+  PlaceCard = 'place-card',
+  Property = 'property'
+}
+
 export const PageAttributes = {
   Main: {
     'Title': 'Cities',

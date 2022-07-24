@@ -2,12 +2,13 @@ import {renderRatingWidth} from '../../tools/tools';
 
 type Props = {
   rating: number;
+  cardType: string;
 }
 
-function Rating({rating}: Props): JSX.Element {
+function Rating({rating, cardType}: Props): JSX.Element {
   return (
-    <div className="place-card__rating rating">
-      <div className="place-card__stars rating__stars">
+    <div className={`${cardType}__rating rating`}>
+      <div className={`${cardType}__stars rating__stars`}>
         <span style={renderRatingWidth(rating)}></span>
         <span className="visually-hidden">Rating</span>
       </div>
