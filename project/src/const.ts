@@ -21,6 +21,8 @@ export enum Cities {
   SixthCity = 'Dusseldorf'
 }
 
+export const cityList = ['Paris', 'Cologne', 'Brussels', 'Amsterdam', 'Hamburg', 'Dusseldorf'];
+
 export enum cardClassNames {
   PlaceCard = 'place-card',
   Property = 'property'
