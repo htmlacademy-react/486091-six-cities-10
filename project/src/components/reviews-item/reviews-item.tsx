@@ -31,7 +31,7 @@ function ReviewsItem({review}: ReviewsItemType) {
         </time>
       </div>
     </li>
-  )
+  );
 }
 
 export default ReviewsItem;

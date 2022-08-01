@@ -1,4 +1,3 @@
-import Rating from '../rating/rating';
 import ReviewsItem from '../reviews-item/reviews-item';
 import {Review} from '../../types/offers';
 import ReviewsForm from '../reviews-form/reviews-form';

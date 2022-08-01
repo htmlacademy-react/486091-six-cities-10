@@ -1,5 +1,6 @@
 import ProposalList from '../proposal-list/proposal-list';
 import {Offer} from '../../types/offers';
+import Map from '../map/map';
 
 type Props = {
   placesCount: number;
@@ -32,7 +33,7 @@ function CitiesWithPlaces({placesCount, offers}: Props): JSX.Element {
 
       </section>
       <div className="cities__right-section">
-        <section className="cities__map map"></section>
+        <Map points={offers}/>
       </div>
     </div>
   );
